@@ -16,10 +16,10 @@ def compile_python(code,f_id):
     file = open(f_id+".py", "w")
     file.write(code)
     file.close()
-    op1 = subprocess.run(["python", f_id+".py"],stdout=subprocess.PIPE).stdout.decode('utf-8')
-    op2 = subprocess.run(["python", f_id+".py"],stderr=subprocess.PIPE).stderr.decode('utf-8')
+    op1 = subprocess.run(["python3", f_id+".py"],stdout=subprocess.PIPE).stdout.decode('utf-8')
+    op2 = subprocess.run(["python3", f_id+".py"],stderr=subprocess.PIPE).stderr.decode('utf-8')
     op2="ER\#003 "+str(op2)
-    #subprocess.call(["rm",f_id+".py"])
+    subprocess.call(["rm",f_id+".py"])
     if(len(op1) != 0):
         return op1
     else:
