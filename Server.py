@@ -14,9 +14,8 @@ app = FastAPI()
 @app.post("/compile/")
 async def create_item(item: Item):
     op = compile.run(item.source,item.lang,item.id)
-    op = op.replace("\n","<br />").replace("\t","&nbsp;&nbsp;&nbsp;&nbsp;")  
-
-    # print(op)
+    op = op.replace("\n","<br />").replace("\t","&nbsp;&nbsp;&nbsp;&nbsp;")
+    
     data={
       'msg': op
     }
